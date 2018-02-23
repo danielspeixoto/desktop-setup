@@ -1,0 +1,77 @@
+---
+  - hosts: 127.0.0.1
+    connection: local
+    become: true
+
+    pre_tasks:
+    - name: Packages updated to lastest version
+      apt:
+        upgrade: dist
+      
+    - name: "Git"
+      apt: name=git state=present
+  
+    roles: 
+    - role: gantsign.visual-studio-code
+
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: daniel
+      oh_my_zsh:
+      theme: robbyrussell
+      plugins:
+        - git
+
+    - role: gantsign.golang
+      golang_gopath: '$HOME/workspace-go'
+
+    - role: gantsign.intellij
+      intellij_jdks:
+        - name: '1.8'
+          home: '/usr/lib/jvm/java-8-openjdk-amd64'
+      intellij_default_jdk: '1.8'
+      intellij_disabled_plugins:
+        - CVS
+        - com.intellij.uiDesigner
+        - TestNG-J
+        - hg4idea
+        - Subversion
+        - AntSupport
+        - DevKit
+      intellij_codestyles:
+        - name: GoogleStyle
+          url: 'https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml'
+      intellij_active_codestyle: GoogleStyle
+      intellij_plugins:
+        - CheckStyle-IDEA
+
+    tasks:
+    - name: "Xclip"
+      apt: name=xclip state=present
+
+    - name: "Chromium"
+      apt: name=chromium-browser state=present
+
+    - name: "Docker"
+      apt: name=docker state=present
+
+    - name: "Docker-compose"
+      apt: name=docker-compose state=present
+
+    - name: "Node.js"
+      apt: name=nodejs state=present
+
+    - name: "NPM"
+      apt: name=npm state=present
+
+    - name: "Ansible" 
+      apt: name=ansible state=present
+
+    - name: "Terraform" 
+      apt: name=terraform state=present
+
+    - name: "Tree view"
+      apt: name="tree" state=present
+      
+    - name: "VLC"
+      apt: name=vlc state=present

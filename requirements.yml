@@ -1,0 +1,5 @@
+- src: gantsign.visual-studio-code
+- src: gantsign.intellij
+- src: gantsign.oh-my-zsh
+- src: gantsign.golang
+- src: williamyeh.oracle-java
