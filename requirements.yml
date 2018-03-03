@@ -3,3 +3,4 @@
 - src: gantsign.oh-my-zsh
 - src: gantsign.golang
 - src: williamyeh.oracle-java
+- src: geerlingguy.java

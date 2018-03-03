@@ -25,6 +25,9 @@
     - role: gantsign.golang
       golang_gopath: '$HOME/workspace-go'
 
+    - role: geerlingguy.java
+      java_packages:
+      - java-1.8.0-openjdk
     - role: gantsign.intellij
       intellij_jdks:
         - name: '1.8'
@@ -39,7 +42,7 @@
         - AntSupport
         - DevKit
       intellij_codestyles:
-        - name: GoogleStyle
+        - name: GoogleStyle 
           url: 'https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml'
       intellij_active_codestyle: GoogleStyle
       intellij_plugins:
@@ -54,9 +57,6 @@
 
     - name: "Docker"
       apt: name=docker state=present
-
-    - name: "Docker-compose"
-      apt: name=docker-compose state=present
 
     - name: "Node.js"
       apt: name=nodejs state=present
